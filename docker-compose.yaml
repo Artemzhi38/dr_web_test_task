@@ -1,0 +1,17 @@
+services:
+  redis:
+    image: redislabs/redismod
+    volumes:
+      - redis_data:/data
+    ports:
+      - '6379:6379'
+  web:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    depends_on:
+      - redis
+volumes:
+  redis_data:

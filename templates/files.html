@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <h1>Upload file</h1>
+        <form action="/upload" method="post" enctype=multipart/form-data>
+        <form method=post enctype=multipart/form-data>
+            <input type=file name=file>
+            <input type=submit value=Upload>
+        </form>
+        </form>
+    <h1>Download files</h1>
+    <ol>
+    {%for i in range(0, amount)%}
+        <li>{{filenames[i][0]}}/{{filenames[i][1]}} author - {{filenames[i][2]}}
+            <div class="btn-group">
+                <form action="/download/{{filenames[i][1]}}">
+                    <button>Download</button>
+                </form>
+            </div>
+        </li>
+    {%endfor%}
+    </ol>
+
+</body>
+</html>
